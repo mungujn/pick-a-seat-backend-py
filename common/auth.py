@@ -29,8 +29,8 @@ def validTicketRequired(f):
             if guest is None:
                 return responses.respondUnauthorized('Incorrect email address')
 
-            if ticket_number != guest[ticket_number]:
+            if ticket_number != guest['ticket_number']:
                 return responses.respondUnauthorized('Incorrect ticket number')
 
-        return f(*args, **kwargs)
+        return f(*args, **kwargs, name=guest['name'])
     return decoratedFunction

@@ -28,7 +28,7 @@ def getTableOccupancy(table_number):
 
 
 @auth.validTicketRequired
-def updateTableOccupancy(table_number):
+def updateTableOccupancy(table_number, name):
     '''Edit account details
     '''
     log.start()
@@ -36,11 +36,11 @@ def updateTableOccupancy(table_number):
     data_is_valid = validateDataForUpdate(request)
     if data_is_valid:
         try:
-            data = request.get_json()
-            seat_number = data['seat_number']
+            occupant = request.get_json()
+            occupant['name'] = name
 
             succeded, reason = functions.updateTableOccupancy(
-                table_number, seat_number)
+                table_number, occupant)
 
             if succeded:
                 return responses.respondOk('successfuly selected seat')

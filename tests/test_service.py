@@ -15,7 +15,7 @@ def test_getTable():
     assert r.status_code == 200
 
 
-test_getTable()
+# test_getTable()
 
 
 def test_updateTable():
@@ -31,4 +31,4 @@ def test_updateTable():
     assert r.status_code == 200
 
 
-# test_updateTable()
+test_updateTable()
