@@ -1,0 +1,10 @@
+.vscode
+.env
+__pycache__
+.pytest_cache
+common/admin-scripts.py
+common/guests.csv
+common/guests.py
+production.yaml
+requirements.txt
+t.py
