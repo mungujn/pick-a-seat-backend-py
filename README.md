@@ -10,3 +10,9 @@ Unlike the [Node.js](https://github.com/mungujn/pick-a-seat-backend) backend, he
 GET '/table/{table-number}' returns a JSON object with occupancy details of the table specified by table-number
 
 PUT '/table/{table-number}' updates a tables occupancy details.
+
+## Running the project
+
+- Install the requiremnts
+- Create a firebase project in case you want to use the code as is. i.e if you want to use the cloud firestore database. Otherwise replace the database logic in the common/database.py file with the logic for whatever persistance store you want to use.
+- Test using pytest
