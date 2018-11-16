@@ -1,0 +1,7 @@
+flask
+flask-cors
+pytest
+gunicorn
+python-dotenv
+grpcio
+google-cloud-firestore

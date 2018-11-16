@@ -83,12 +83,12 @@ def assignEmptySeat(table_number, email_address, full_seat_number, partial_seat_
     seat = {}
     seat['taken'] = True
     seat['taken_by'] = email_address
-    db.update(f'events/dinner/seats/{full_seat_number}', seat)
+    db.create(f'events/dinner/seats/{full_seat_number}', seat)
 
     guest = {}
     guest['has_seat'] = True
     guest['table_number'] = table_number
     guest['seat_number'] = partial_seat_number
-    db.update(f'events/dinner/guests/{email_address}', guest)
+    db.create(f'events/dinner/guests/{email_address}', guest)
 
     return True, f'You have selected seat {partial_seat_number} from table {table_number}'

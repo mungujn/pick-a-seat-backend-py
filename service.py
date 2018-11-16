@@ -29,7 +29,7 @@ def getTableOccupancy(table_number):
 
 @auth.validTicketRequired
 def updateTableOccupancy(table_number, name):
-    '''Edit account details
+    '''Edit table occupancy
     '''
     log.start()
     log.info(f'PUT: /table/{table_number}'.center(20, '-'))
@@ -47,7 +47,7 @@ def updateTableOccupancy(table_number, name):
             else:
                 return responses.respondBadRequest(reason)
         except Exception as error:
-            log.info('error while sending money to account')
+            log.info('error while selecting seat')
             log.info('*'.center(20, '-'))
             return responses.respondInternalServerError(error)
     else:

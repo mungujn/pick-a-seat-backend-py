@@ -5,6 +5,5 @@ __pycache__
 common/admin-scripts.py
 common/guests.csv
 production.yaml
-requirements.txt
 t.py
 xlog.py

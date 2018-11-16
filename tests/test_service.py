@@ -11,8 +11,8 @@ def test_getTable():
     r = client.get('/table/1')
 
     data = json.loads(r.data)
-    print(r.data)
     assert r.status_code == 200
+    assert data['1'] == {'taken': False}
 
 
 # test_getTable()
