@@ -12,7 +12,7 @@ def test_getTable():
 
     data = json.loads(r.data)
     assert r.status_code == 200
-    assert data['1'] == {'taken': False}
+    assert data['1'] == {'name': None, 'taken': False}
 
 
 # test_getTable()
@@ -27,8 +27,8 @@ def test_updateTable():
     })
 
     data = json.loads(r.data)
-    print(data)
-    assert r.status_code == 200
+    assert r.status_code == 400
+    assert data['message'] == 'Seat already taken'
 
 
 test_updateTable()

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/mungujn/pick-a-seat-backend-py.svg?branch=master)](https://travis-ci.com/mungujn/pick-a-seat-backend-py)
 
-Backend for a web app for reserving seats. The web apps code is available [here](https://www.github.com/mungujn/pick-a-seat-frontend)
+Backend for a web app for reserving seats. The web apps code and a live demo is available [here](https://www.github.com/mungujn/pick-a-seat-frontend).
 
 The backend is built around the flask microframework.
 Unlike the [Node.js](https://github.com/mungujn/pick-a-seat-backend) backend, here the single exposed endpoint is more 'REST' like.

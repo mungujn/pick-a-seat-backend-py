@@ -4,6 +4,7 @@ __pycache__
 .pytest_cache
 common/admin-scripts.py
 common/guests.csv
+common/skey.json
 production.yaml
 t.py
 xlog.py

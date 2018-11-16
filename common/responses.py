@@ -1,6 +1,7 @@
 from flask import jsonify
 import common.logger as log
 
+
 def respondInternalServerError(message='Internal server error', error=None):
     '''Returns an object which flask will parse and transform into a 500 response'''
     log.info('Responding internal server error')
@@ -10,7 +11,7 @@ def respondInternalServerError(message='Internal server error', error=None):
     return (jsonify({
         'code': 500,
         'message': message
-        }), 500)
+    }), 500)
 
 
 def respondBadRequest(message='Invalid data sent'):
@@ -20,7 +21,7 @@ def respondBadRequest(message='Invalid data sent'):
     return (jsonify({
         'code': 400,
         'message': message
-        }), 400)
+    }), 400)
 
 
 def respondUnauthorized(message):
@@ -30,7 +31,7 @@ def respondUnauthorized(message):
     return (jsonify({
         'code': 401,
         'message': message
-        }), 401)
+    }), 401)
 
 
 def respondCreated(data):

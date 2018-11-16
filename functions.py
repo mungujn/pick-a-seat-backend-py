@@ -49,12 +49,12 @@ def updateTableOccupancy(table_number, occupant):
             and requesting_occupants_seats is not None:
         old_table_number = requesting_occupants_seats['table_number']
 
-        # clear from old seat
+        log.info('clearing previous seat')
         old_seat_number = requesting_occupants_seats['seat_number']
         old_full_seat_number = old_table_number + old_seat_number
         db.delete(f'events/dinner/seats/{old_full_seat_number}')
 
-        # clear from old table
+        log.info('clearing occupancy from previous table')
         table = {}
         seat = {}
         seat['taken'] = False
@@ -75,15 +75,15 @@ def assignEmptySeat(table_number, email_address, full_seat_number, partial_seat_
     del occupant['email_address']
     del occupant['ticket_number']
 
-    table = {}
-    occupant['taken'] = True
-    table[table_number] = occupant
-    db.update(f'events/dinner/tables/{table_number}', table)
-
     seat = {}
     seat['taken'] = True
     seat['taken_by'] = email_address
     db.create(f'events/dinner/seats/{full_seat_number}', seat)
+
+    table = {}
+    occupant['taken'] = True
+    table[partial_seat_number] = occupant
+    db.update(f'events/dinner/tables/{table_number}', table)
 
     guest = {}
     guest['has_seat'] = True

@@ -39,13 +39,13 @@ def updateTableOccupancy(table_number, name):
             occupant = request.get_json()
             occupant['name'] = name
 
-            succeded, reason = functions.updateTableOccupancy(
+            succeded, message = functions.updateTableOccupancy(
                 table_number, occupant)
 
             if succeded:
-                return responses.respondOk('successfuly selected seat')
+                return responses.respondOk(message)
             else:
-                return responses.respondBadRequest(reason)
+                return responses.respondBadRequest(message)
         except Exception as error:
             log.info('error while selecting seat')
             log.info('*'.center(20, '-'))

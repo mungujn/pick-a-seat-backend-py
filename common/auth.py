@@ -1,8 +1,6 @@
-from dotenv import load_dotenv
-load_dotenv()  # sets gcloud project
 from functools import wraps
 from flask import request
-from common import responses, guests
+from common import responses, guests, setup_firebase
 import common.logger as log
 cache = guests.CACHED_AUTH
 

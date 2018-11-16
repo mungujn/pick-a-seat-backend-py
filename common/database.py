@@ -57,13 +57,25 @@ def update(location, data):
     nests = location.split('/')
     l = len(nests)
 
-    if l == 2:
-        log.info(f'Updating {nests[0]}/{nests[1]}')
-        db.collection(nests[0]).document(nests[1]).update(data)
-    elif l == 4:
-        log.info(f'Updating {nests[0]}/{nests[1]}/{nests[2]}/{nests[3]}')
-        db.collection(nests[0]).document(nests[1]).collection(
-            nests[2]).document(nests[3]).update(data)
+    try:
+        if l == 2:
+            log.info(f'Updating {nests[0]}/{nests[1]}')
+            db.collection(nests[0]).document(nests[1]).update(data)
+        elif l == 4:
+            log.info(f'Updating {nests[0]}/{nests[1]}/{nests[2]}/{nests[3]}')
+            db.collection(nests[0]).document(nests[1]).collection(
+                nests[2]).document(nests[3]).update(data)
+    except Exception as e:
+        print(type(e))
+        log.info('Updating failed, creating')
+        print(e)
+        if l == 2:
+            log.info(f'Creating {nests[0]}/{nests[1]}')
+            db.collection(nests[0]).document(nests[1]).set(data)
+        elif l == 4:
+            log.info(f'Creating {nests[0]}/{nests[1]}/{nests[2]}/{nests[3]}')
+            db.collection(nests[0]).document(nests[1]).collection(
+                nests[2]).document(nests[3]).set(data)
 
 
 def delete(location):
